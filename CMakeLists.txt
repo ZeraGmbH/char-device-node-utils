@@ -10,6 +10,7 @@ include(GNUInstallDirs)
 include(FindPkgConfig)
 
 find_package(GTest)
+enable_testing()
 
 add_subdirectory(src)
 add_subdirectory(tests)

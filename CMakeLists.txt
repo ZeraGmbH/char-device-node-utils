@@ -10,7 +10,7 @@ include(GNUInstallDirs)
 include(FindPkgConfig)
 
 find_package(GTest)
-pkg_check_modules(FUSE fuse3 REQUIRED)
+enable_testing()
 
 add_subdirectory(src)
 add_subdirectory(tests)

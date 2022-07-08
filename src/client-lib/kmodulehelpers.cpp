@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <string>
 
+namespace KModuleHelpers {
+
 bool loadKernelModule()
 {
     std::string cmd = std::string("insmod ") + std::string(CNC_KMOD) + std::string(" 2>&1");
@@ -24,4 +26,6 @@ bool removeKernelModule()
     FILE *fd = popen(cmd.c_str(), "r");
     char buf[256];
     return fread(buf, 1, sizeof(buf), fd) == 0;
+}
+
 }

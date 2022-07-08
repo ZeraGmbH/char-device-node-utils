@@ -11,7 +11,9 @@ message("kerneldir: ${kerneldir}")
 set(kernelincdir "/usr/src/kernels/${uname_r}/include")
 message("kernelincdir: ${kernelincdir}")
 
-add_library(char-node-creator-dummylib STATIC char_node_creator.c)
+add_library(char-node-creator-dummylib STATIC EXCLUDE_FROM_ALL
+    char_node_creator.c
+    )
 get_target_property(module_sources char-node-creator-dummylib SOURCES)
 list(APPEND module_sources module.c)
 
@@ -25,3 +27,6 @@ set_target_properties(char-node-creator-dummylib
     LANGUAGE C
     C_STANDARD 99
     )
+
+set(CNC_KMOD "${CMAKE_CURRENT_SOURCE_DIR}/char_node_creator.ko")
+configure_file(kmodulelocation.h.in kmodulelocation.h @ONLY)

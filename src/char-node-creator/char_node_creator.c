@@ -21,7 +21,7 @@ static int __init char_node_creator_init(void) {
     return 0;
 }
 
-static void __exit char_node_creator_exit(void) {
+static void char_node_creator_exit(void) {
     class_destroy(cnc_class);
     printk(KERN_INFO "char_node_creator module unloaded\n");
 }

@@ -4,8 +4,6 @@ add_test(NAME    kernelmodule-test
          COMMAND kernelmodule-test)
 
 add_executable(kernelmodule-test
-    ${CMAKE_CURRENT_SOURCE_DIR}/kernelmodulehelpers.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/kernelmodulehelpers.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/testkmodhelpers.cpp
 )
 # constexpr / EXPECT_EQ -> linker problems for c++ < 17
@@ -21,6 +19,6 @@ target_link_libraries(kernelmodule-test
     PUBLIC
     gtest
     gtest_main
+    client-lib
 )
 
-configure_file(kmodulelocation.h.in kmodulelocation.h @ONLY)

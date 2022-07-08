@@ -1,4 +1,4 @@
-#include "kernelmodulehelpers.h"
+#include "kmodulehelpers.h"
 #include "kmodulelocation.h"
 #include <stdio.h>
 #include <string>

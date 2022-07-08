@@ -12,7 +12,5 @@ include(FindPkgConfig)
 find_package(GTest)
 pkg_check_modules(FUSE fuse3 REQUIRED)
 
-set(CNC_KMOD "${PROJECT_SOURCE_DIR}/src/char-node-creator/char_node_creator.ko")
-
 add_subdirectory(src)
 add_subdirectory(tests)

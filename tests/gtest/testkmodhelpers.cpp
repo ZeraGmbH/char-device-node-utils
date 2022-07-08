@@ -1,4 +1,4 @@
-#include "kernelmodulehelpers.h"
+#include "kmodulehelpers.h"
 #include <gtest/gtest.h>
 
 TEST(TEST_KMODHELPERS, LOAD_MODULE) {

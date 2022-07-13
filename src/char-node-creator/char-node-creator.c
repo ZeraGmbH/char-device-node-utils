@@ -1,3 +1,4 @@
+#include "control-node.h"
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/kernel.h>
@@ -17,11 +18,13 @@ static int __init char_node_creator_init(void) {
         pr_err("char_node_creator: unable to create class!\n");
         return PTR_ERR(cnc_class);
     }
+    cnc_create_control_node();
     printk(KERN_INFO "char_node_creator module loaded\n");
     return 0;
 }
 
 static void char_node_creator_exit(void) {
+    cnc_destroy_control_node();
     class_destroy(cnc_class);
     printk(KERN_INFO "char_node_creator module unloaded\n");
 }

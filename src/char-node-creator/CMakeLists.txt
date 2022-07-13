@@ -12,7 +12,9 @@ set(kernelincdir "/usr/src/kernels/${uname_r}/include")
 message("kernelincdir: ${kernelincdir}")
 
 add_library(char-node-creator-dummylib STATIC EXCLUDE_FROM_ALL
-    char_node_creator.c
+    char-node-creator.c
+    control-node.c
+    control-node.h
     )
 get_target_property(module_sources char-node-creator-dummylib SOURCES)
 list(APPEND module_sources module.c)

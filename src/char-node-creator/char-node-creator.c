@@ -1,10 +1,5 @@
 #include "control-node.h"
-#include <linux/init.h>
 #include <linux/module.h>
-#include <linux/kernel.h>
-#include <linux/fs.h>
-#include <linux/uaccess.h>
-#include <linux/err.h>
 #include <linux/platform_device.h>
 
 #define DEVICE_NAME "char_node_creator"

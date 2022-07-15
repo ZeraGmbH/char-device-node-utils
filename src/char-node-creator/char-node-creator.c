@@ -12,7 +12,8 @@
 #define CNC_CLASS_NAME "CharNodeCreator"
 static struct class *cnc_class;
 
-static int __init char_node_creator_init(void) {
+static int __init char_node_creator_init(void)
+{
     cnc_class = class_create(THIS_MODULE, CNC_CLASS_NAME);
     if (IS_ERR(cnc_class)) {
         pr_err("char_node_creator: unable to create class!\n");
@@ -23,7 +24,8 @@ static int __init char_node_creator_init(void) {
     return 0;
 }
 
-static void char_node_creator_exit(void) {
+static void __exit char_node_creator_exit(void)
+{
     cnc_destroy_control_node();
     class_destroy(cnc_class);
     printk(KERN_INFO "char_node_creator module unloaded\n");

@@ -15,6 +15,7 @@ add_library(char-node-creator-dummylib STATIC EXCLUDE_FROM_ALL
     char-node-creator.c
     control-node.c
     control-node.h
+    globals.h
     Makefile
     )
 

@@ -1,6 +1,6 @@
 add_library(client-lib STATIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/kmodulehelpers.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/kmodulehelpers.h
+    kmodulehelpers.cpp
+    kmodulehelpers.h
     )
 
 target_link_libraries(client-lib

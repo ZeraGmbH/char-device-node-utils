@@ -4,6 +4,7 @@ add_test(NAME    kernelmodule-test
          COMMAND kernelmodule-test)
 
 add_executable(kernelmodule-test
+    ${CMAKE_CURRENT_SOURCE_DIR}/fixtures.h
     ${CMAKE_CURRENT_SOURCE_DIR}/testkmodhelpers.cpp
 )
 # constexpr / EXPECT_EQ -> linker problems for c++ < 17

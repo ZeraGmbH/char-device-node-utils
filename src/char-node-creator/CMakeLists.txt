@@ -24,13 +24,20 @@ execute_process(
     OUTPUT_STRIP_TRAILING_WHITESPACE
     )
 
-set(kernelsrcdir "/usr/src/kernels/${uname_r}")
-set(archkernelincdir "${kernelsrcdir}/arch/x86/include")
+set(KERNEL_SRC_DIR "/usr/src/kernels/${uname_r}")
+set(KERNEL_ARCH_INCDIR "${KERNEL_SRC_DIR}/arch/x86/include")
+set(KERNEL_ARCH_GENERATED_INCDIR "${KERNEL_ARCH_INCDIR}/generated")
 
 target_include_directories(char-node-creator-dummylib
     PUBLIC
-    ${kernelsrcdir}/include
-    ${archkernelincdir}
+    ${KERNEL_SRC_DIR}/include
+    ${KERNEL_ARCH_INCDIR}
+    ${KERNEL_ARCH_GENERATED_INCDIR}
+    )
+
+target_compile_definitions(char-node-creator-dummylib
+    PUBLIC
+    __KERNEL__
     )
 
 set_target_properties(char-node-creator-dummylib

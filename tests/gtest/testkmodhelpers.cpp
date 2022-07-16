@@ -1,23 +1,32 @@
 #include "kmodulehelpers.h"
 #include <gtest/gtest.h>
 
-TEST(TEST_KMODHELPERS, LOAD_MODULE) {
+class KmodTest : public ::testing::Test
+{
+protected:
+    void SetUp() override {
+        KModuleHelpers::removeKernelModule();
+    }
+    void TearDown() override {
+        KModuleHelpers::removeKernelModule();
+    }
+};
+
+TEST_F(KmodTest, LoadModule) {
     EXPECT_TRUE(KModuleHelpers::loadKernelModule());
 }
 
-TEST(TEST_KMODHELPERS, LOAD_MODULE_WITH_CHECK) {
+TEST_F(KmodTest, LoadModuleWithCheck) {
     KModuleHelpers::loadKernelModule();
     EXPECT_TRUE(KModuleHelpers::checkModuleLoaded());
 }
 
-TEST(TEST_KMODHELPERS, LOAD_REMOVE_MODULE_WITH_CHECK) {
+TEST_F(KmodTest, LoadRemoveModuleWithCheck) {
     KModuleHelpers::loadKernelModule();
     EXPECT_TRUE(KModuleHelpers::removeKernelModule());
 }
 
-TEST(TEST_KMODHELPERS, LOAD_LOAD_REMOVE_MODULE_SEQUENCE) {
-    KModuleHelpers::removeKernelModule();
-
+TEST_F(KmodTest, LoadRemoveModuleSequence) {
     EXPECT_TRUE(KModuleHelpers::loadKernelModule());
     EXPECT_TRUE(KModuleHelpers::checkModuleLoaded());
     EXPECT_TRUE(KModuleHelpers::removeKernelModule());

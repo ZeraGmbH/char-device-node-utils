@@ -1,5 +1,4 @@
 #include "fixtures.h"
-#include <gtest/gtest.h>
 
 class Helpers : public KModuleNotLoaded {};
 

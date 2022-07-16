@@ -1,21 +1,21 @@
 #include "fixtures.h"
 #include <gtest/gtest.h>
 
-TEST_F(KmodTest, LoadModule) {
+TEST_F(KModuleNotLoaded, LoadModule) {
     EXPECT_TRUE(KModuleHelpers::loadKernelModule());
 }
 
-TEST_F(KmodTest, LoadModuleWithCheck) {
+TEST_F(KModuleNotLoaded, LoadModuleWithCheck) {
     KModuleHelpers::loadKernelModule();
     EXPECT_TRUE(KModuleHelpers::checkModuleLoaded());
 }
 
-TEST_F(KmodTest, LoadRemoveModuleWithCheck) {
+TEST_F(KModuleNotLoaded, LoadRemoveModuleWithCheck) {
     KModuleHelpers::loadKernelModule();
     EXPECT_TRUE(KModuleHelpers::removeKernelModule());
 }
 
-TEST_F(KmodTest, LoadRemoveModuleSequence) {
+TEST_F(KModuleNotLoaded, LoadRemoveModuleSequence) {
     EXPECT_TRUE(KModuleHelpers::loadKernelModule());
     EXPECT_TRUE(KModuleHelpers::checkModuleLoaded());
     EXPECT_TRUE(KModuleHelpers::removeKernelModule());

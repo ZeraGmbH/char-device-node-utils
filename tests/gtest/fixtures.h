@@ -4,7 +4,7 @@
 #include <kmodulehelpers.h>
 #include <gtest/gtest.h>
 
-class KmodTest : public ::testing::Test
+class KModuleNotLoaded : public ::testing::Test
 {
 protected:
     void SetUp() override {
@@ -15,7 +15,7 @@ protected:
     }
 };
 
-class KmodTestModuleLoaded : public KmodTest
+class KModuleLoaded : public KModuleNotLoaded
 {
 protected:
     void SetUp() override {

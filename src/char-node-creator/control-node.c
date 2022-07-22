@@ -34,19 +34,24 @@ struct file_operations cnc_fops = {
     .release =  cnc_control_release
 };
 
+static int cnc_device_create(dev_t first_char_node, struct class *c)
+{
+    int ret = 0;
+    cnc_device = device_create(c, NULL, first_char_node, NULL, "%s", CNC_CONTROL_DEV_NAME);
+    if (IS_ERR(cnc_device)) {
+        ret = PTR_ERR(cnc_device);
+    }
+    return ret;
+}
 
 int cnc_control_create_node(dev_t first_char_node, struct class *c)
 {
     int ret;
-
     cdev_init(&cnc_cdev, &cnc_fops);
     cnc_cdev.owner = THIS_MODULE;
     ret = cdev_add(&cnc_cdev, first_char_node, 1);
     if (ret == 0) {
-        cnc_device = device_create(c, NULL, first_char_node, NULL, "%s", CNC_CONTROL_DEV_NAME);
-        if (IS_ERR(cnc_device)) {
-            ret = PTR_ERR(cnc_device);
-        }
+        ret = cnc_device_create(first_char_node, c);
     }
     else {
         cdev_del(&cnc_cdev);

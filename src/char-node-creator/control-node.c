@@ -27,6 +27,7 @@ struct cdev cnc_cdev;
 struct device *cnc_device = NULL;
 
 struct file_operations cnc_fops = {
+    .owner = THIS_MODULE,
     .read =  cnc_control_read,
     .write = cnc_control_write,
     .open =  cnc_control_open,

@@ -1,1 +1,1 @@
-#cmakedefine CNC_KMOD "@CNC_KMOD@"
+#cmakedefine CNC_KMODULE_PATH "@CNC_KMODULE_PATH@"

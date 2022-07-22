@@ -1,0 +1,3 @@
+obj-m += @MODULENAME@.o
+@MODULENAME@-objs :=@KSOURCEFILES@
+

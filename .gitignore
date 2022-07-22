@@ -1,10 +1,2 @@
 *.user*
-*.o
-*.ko
-*.o.*
-*.ko.*
-*.mod
-*.mod.*
-*.cmd
-*.order
-*.symvers
+

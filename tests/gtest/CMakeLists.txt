@@ -13,7 +13,7 @@ set_property(TARGET kernelmodule-test PROPERTY CXX_STANDARD 17)
 
 target_include_directories(kernelmodule-test
     PRIVATE
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+    ${KERNEL_MODULE_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
     )
 

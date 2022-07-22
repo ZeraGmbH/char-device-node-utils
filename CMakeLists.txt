@@ -9,6 +9,8 @@ include(FeatureSummary)
 include(GNUInstallDirs)
 include(FindPkgConfig)
 
+set(KERNEL_MODULE_SOURCE_DIR ${PROJECT_SOURCE_DIR}/src/char-node-creator)
+
 find_package(GTest)
 
 add_subdirectory(src)

@@ -27,3 +27,12 @@ TEST_F(Helpers, LoadRemoveModuleSequence) {
     EXPECT_TRUE(KModuleHelpers::removeKernelModule());
     EXPECT_FALSE(KModuleHelpers::checkModuleLoaded());
 }
+
+TEST_F(Helpers, ProcCharDeviceNotCreated) {
+    EXPECT_FALSE(KModuleHelpers::checkCharDeviceInProcFiles());
+}
+
+TEST_F(Helpers, ProcCharDeviceCreated) {
+    KModuleHelpers::loadKernelModule();
+    EXPECT_TRUE(KModuleHelpers::checkCharDeviceInProcFiles());
+}

@@ -42,7 +42,7 @@ int cnc_create_control_node(dev_t first_char_node, struct class *c)
     cnc_cdev.owner = THIS_MODULE;
     ret = cdev_add(&cnc_cdev, first_char_node, 1);
     if (ret == 0) {
-        cnc_device = device_create(c, NULL, first_char_node, NULL, "%s", CNC_NAME);
+        cnc_device = device_create(c, NULL, first_char_node, NULL, "%s", CNC_CONTROL_DEV_NAME);
         if (IS_ERR(cnc_device)) {
             ret = PTR_ERR(cnc_device);
         }

@@ -6,6 +6,7 @@ namespace KModuleHelpers {
 bool loadKernelModule();
 bool removeKernelModule();
 bool checkModuleLoaded();
+bool checkCharDeviceInProcFiles();
 
 }
 

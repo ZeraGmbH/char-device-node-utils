@@ -27,11 +27,11 @@ static int __init char_node_creator_init(void)
         return ret;
     }
 
-    ret = cnc_create_control_node(first_char_node, cnc_class);
+    ret = cnc_control_create_node(first_char_node, cnc_class);
     if (ret) {
         unregister_chrdev_region(first_char_node, node_count);
         class_destroy(cnc_class);
-        pr_err("char_node_creator: cnc_create_control_node failed!\n");
+        pr_err("char_node_creator: cnc_control_create_node failed!\n");
         return ret;
     }
     printk(KERN_INFO "char_node_creator module loaded\n");
@@ -40,7 +40,7 @@ static int __init char_node_creator_init(void)
 
 static void __exit char_node_creator_exit(void)
 {
-    cnc_destroy_control_node(first_char_node, cnc_class);
+    cnc_control_destroy_node(first_char_node, cnc_class);
     unregister_chrdev_region(first_char_node, node_count);
     class_destroy(cnc_class);
     printk(KERN_INFO "char_node_creator module unloaded\n");

@@ -26,14 +26,21 @@ static int __init char_node_creator_init(void)
         pr_err("char_node_creator: unable to alloc_chrdev_region!\n");
         return ret;
     }
-    cnc_create_control_node();
+
+    /*ret = cnc_create_control_node(first_char_node, cnc_class);
+    if (ret) {
+        unregister_chrdev_region(first_char_node, node_count);
+        class_destroy(cnc_class);
+        pr_err("char_node_creator: cnc_create_control_node failed!\n");
+        return ret;
+    }*/
     printk(KERN_INFO "char_node_creator module loaded\n");
     return 0;
 }
 
 static void __exit char_node_creator_exit(void)
 {
-    cnc_destroy_control_node();
+    cnc_destroy_control_node(first_char_node, cnc_class);
     unregister_chrdev_region(first_char_node, node_count);
     class_destroy(cnc_class);
     printk(KERN_INFO "char_node_creator module unloaded\n");

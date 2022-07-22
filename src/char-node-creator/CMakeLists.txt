@@ -1,6 +1,5 @@
 # TODO: out of tree build
 add_custom_target(cnc-kernelmodule ALL
-    SOURCES ${SOURCE_DEVINFO}
     COMMAND make
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     )
